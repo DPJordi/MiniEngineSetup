@@ -1,0 +1,26 @@
+﻿  Command.cpp
+  GameObject.cpp
+  InputManager.cpp
+  Main.cpp
+  Minigin.cpp
+  Scene.cpp
+  Texture2DComponent.cpp
+     Creating library D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Release\Minigin.lib and object D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Release\Minigin.exp
+  Generating code
+  92 of 648 functions (14.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    59 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Minigin.vcxproj -> D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Release\Minigin.exe
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2\lib\x64\SDL2.dll
+  1 File(s) copied
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\libjpeg-9.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\libpng16-16.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\libtiff-5.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\libwebp-7.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\SDL2_image.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_image\lib\x64\zlib1.dll
+  6 File(s) copied
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_ttf\lib\x64\libfreetype-6.dll
+  D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\3rdParty\SDL2_ttf\lib\x64\SDL2_ttf.dll
+  2 File(s) copied
