@@ -1,8 +1,26 @@
-﻿  GameObject.cpp
+﻿  MiniginPCH.cpp
+  imgui_impl_opengl2.cpp
+  imgui_impl_sdl.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Generating Code...
+  Command.cpp
+  Font.cpp
+  GameObject.cpp
   InputManager.cpp
+  Main.cpp
   Minigin.cpp
+  Renderer.cpp
+  ResourceManager.cpp
   Scene.cpp
+  SceneManager.cpp
+  TextObject.cpp
+  Texture2D.cpp
   Texture2DComponent.cpp
+  Transform.cpp
   Generating Code...
      Creating library D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Debug\Minigin.lib and object D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Debug\Minigin.exp
   Minigin.vcxproj -> D:\DAE\2de jaar\4de smester\programming 4\MiniEngineSetup\x64\Debug\Minigin.exe
