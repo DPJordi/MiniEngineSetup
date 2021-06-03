@@ -56,7 +56,7 @@ void dae::Minigin::LoadGame() const
 	go->AddComponent("Texture2D",std::make_shared<Texture2DComponent>("logo.png", go->GetTransform()));
 	scene.Add(go);
 
-	auto font20 = ResourceManager::GetInstance().LoadFont("Lingua.otf", 20);
+	/*auto font20 = ResourceManager::GetInstance().LoadFont("Lingua.otf", 20);
 	auto startGameTO = std::make_shared<TextObject>("Start Game", font20);
 	startGameTO->SetPosition(250, 250);
 	scene.Add(startGameTO);
@@ -67,7 +67,7 @@ void dae::Minigin::LoadGame() const
 
 	auto quitTO = std::make_shared<TextObject>("Quit", font20);
 	quitTO->SetPosition(250, 300);
-	scene.Add(quitTO);
+	scene.Add(quitTO);*/
 
 }
 
