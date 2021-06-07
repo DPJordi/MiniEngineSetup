@@ -11,10 +11,13 @@
 #include "GameObject.h"
 #include "Scene.h"
 
-#include "Texture2DComponent.h"
+#include "Command.h"
+#include "componentInclude.h"
 
 using namespace std;
 using namespace std::chrono;
+
+std::shared_ptr<dae::GameObject> g_Qbert;
 
 void dae::Minigin::Initialize()
 {
@@ -53,22 +56,16 @@ void dae::Minigin::LoadGame() const
 
 	go = std::make_shared<GameObject>();
 	go->SetPosition(200, 120);
-	go->AddComponent("Texture2D",std::make_shared<Texture2DComponent>("logo.png", go->GetTransform()));
+	go->AddComponent("Texture2D",std::make_unique<Texture2DComponent>("logo.png", go->GetTransform()));
 	scene.Add(go);
 
-	/*auto font20 = ResourceManager::GetInstance().LoadFont("Lingua.otf", 20);
-	auto startGameTO = std::make_shared<TextObject>("Start Game", font20);
-	startGameTO->SetPosition(250, 250);
-	scene.Add(startGameTO);
+	g_Qbert = std::make_shared<GameObject>();
+	g_Qbert->SetPosition(10.f,10.f);
+	g_Qbert->AddComponent("Texture2D", std::make_unique<Texture2DComponent>("logo.png", g_Qbert->GetTransform()));
+	g_Qbert->AddComponent("Lives", std::make_shared<LivesComponent>(ResourceManager::GetInstance().LoadFont("Lingua.otf", 20), g_Qbert->GetTransform()));
+	scene.Add(g_Qbert);
 
-	auto settingsTO = std::make_shared<TextObject>("Settings", font20);
-	settingsTO->SetPosition(250, 275);
-	scene.Add(settingsTO);
-
-	auto quitTO = std::make_shared<TextObject>("Quit", font20);
-	quitTO->SetPosition(250, 300);
-	scene.Add(quitTO);*/
-
+	//auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
 }
 
 void dae::Minigin::Cleanup()
@@ -98,6 +95,11 @@ void dae::Minigin::Run()
 			const auto currentTime = high_resolution_clock::now();
 			
 			doContinue = input.ProcessInput();
+			std::shared_ptr<Command> givenCommand = input.ProcessAnotherController();
+			if (givenCommand)
+			{
+				givenCommand->Execute(*g_Qbert);
+			}
 			sceneManager.Update();
 			renderer.Render();
 			

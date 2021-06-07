@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include "ResourceManager.h"
 #include "Renderer.h"
+#include "BaseComponent.h"
+#include "Observer.h"
 
 dae::GameObject::~GameObject() 
 {
@@ -53,3 +55,6 @@ void dae::GameObject::RemoveComponent(const std::string ComponentName)
 		}
 	}
 }
+
+
+

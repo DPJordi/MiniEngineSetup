@@ -36,9 +36,23 @@ void dae::Renderer::Render() const
 	{
 		ImGui::ShowDemoWindow(&m_ShowDemo);
 	}
-	ImGui::Button("Single Player");
-	ImGui::Button("Co-op");
-	ImGui::Button("Versus");
+	static int SPclicked = 0;
+	if (ImGui::Button("Single Player"))
+	{ 
+		++SPclicked;
+	}
+	if (SPclicked &1)
+	{
+		ImGui::Text("WIP");
+	}
+
+	if(ImGui::TreeNode("Multiplayer"))
+	{
+		ImGui::Button("Versus");
+		ImGui::Button("Co-op");
+		ImGui::TreePop();
+	}
+
 	ImGui::Render();
 	ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 

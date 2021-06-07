@@ -3,25 +3,22 @@
 #include "ResourceManager.h"
 #include "Renderer.h"
 
-namespace dae
+dae::Texture2DComponent::Texture2DComponent(const std::string& fileName,const Transform& transform)
+	:m_Transform(transform)
 {
-	Texture2DComponent::Texture2DComponent(const std::string& fileName,const Transform& transform)
-		:m_Transform(transform)
-	{
-		m_pTexture = ResourceManager::GetInstance().LoadTexture(fileName);
-	}
-	Texture2DComponent::~Texture2DComponent()
-	{
+	m_pTexture = ResourceManager::GetInstance().LoadTexture(fileName);
+}
 
-	}
+dae::Texture2DComponent::~Texture2DComponent()
+{
+}
 
-	void Texture2DComponent::Update()
-	{
+void dae::Texture2DComponent::Update()
+{
+}
 
-	}
-	void Texture2DComponent::Render() const
-	{
-		const auto pos = m_Transform.GetPosition();
-		Renderer::GetInstance().RenderTexture(*m_pTexture, pos.x, pos.y);
-	}
+void dae::Texture2DComponent::Render() const
+{
+	const auto pos = m_Transform.GetPosition();
+	Renderer::GetInstance().RenderTexture(*m_pTexture, pos.x, pos.y);
 }

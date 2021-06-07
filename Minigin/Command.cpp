@@ -1,63 +1,35 @@
 #include "MiniginPCH.h"
 #include "Command.h"
 #include <iostream>
+#include "GameObject.h"
+#include "LivesComponent.h"
 
-FireCommand::FireCommand()
+dae::KillCommand::KillCommand()
 {
 }
-FireCommand::~FireCommand()
+dae::KillCommand::~KillCommand()
 {
-}
-void FireCommand::Execute()
+} 
+void dae::KillCommand::Execute(GameObject& actor)
 {
-	std::cout << "Pew pew\n";
+	actor;
 }
-void FireCommand::Undo()
-{
-
-}
-
-DuckCommand::DuckCommand()
-{
-}
-DuckCommand::~DuckCommand()
-{
-}
-void DuckCommand::Execute()
-{
-	std::cout << "Knees weak\n";
-}
-void DuckCommand::Undo()
+void dae::KillCommand::Undo()
 {
 
 }
 
-JumpCommand::JumpCommand()
+dae::FartCommand::FartCommand()
 {
 }
-JumpCommand::~JumpCommand()
+dae::FartCommand::~FartCommand()
 {
 }
-void JumpCommand::Execute()
+void dae::FartCommand::Execute(GameObject& actor)
 {
-	std::cout << "Jump for joy\n";
+	actor;
 }
-void JumpCommand::Undo()
-{
-
-}
-
-FartCommand::FartCommand()
-{
-}
-FartCommand::~FartCommand()
-{
-}
-void FartCommand::Execute()
-{
-	std::cout << "*fart noises*\n";
-}
-void FartCommand::Undo()
+void dae::FartCommand::Undo()
 {
 
 }

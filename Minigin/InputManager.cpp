@@ -1,6 +1,8 @@
 #include "MiniginPCH.h"
 #include "InputManager.h"
 #include <SDL.h>
+#include "Command.h"
+
 
 
 bool dae::InputManager::ProcessInput()
@@ -10,97 +12,17 @@ bool dae::InputManager::ProcessInput()
 	
 	bool controllerResult = ProcessController();
 	bool keyboardResult = ProcessKeyboard();
-
+	
 	return controllerResult && keyboardResult;
 }
 
 bool dae::InputManager::ProcessController()
 {
-	//ABXY-buttons
-	if (IsPressed(ControllerButton::ButtonA))
-	{
-	}
-	else if (IsPressed(ControllerButton::ButtonB))
-	{
-	}
-	else if (IsPressed(ControllerButton::ButtonY))
-	{
-	}
-	else if (IsPressed(ControllerButton::ButtonX))
-	{
-		return false;
-	}
-	//arrow buttons
-	else if (IsPressed(ControllerButton::DPAD_UP))
-	{
-		std::cout << "DPAD UP\n";
-	}
-	else if (IsPressed(ControllerButton::DPAD_DOWN))
-	{
-		std::cout << "DPAD DOWN\n";
-	}
-	else if (IsPressed(ControllerButton::DPAD_LEFT))
-	{
-		std::cout << "DPAD LEFT\n";
-	}
-	else if (IsPressed(ControllerButton::DPAD_RIGHT))
-	{
-		std::cout << "DPAD RIGHT\n";
-	}
-	//Thumb buttons (pressing joysticks)
-	else if (IsPressed(ControllerButton::Left_Tumb))
-	{
-		std::cout << "Left Thumb\n";
-	}
-	else if (IsPressed(ControllerButton::Right_Thumb))
-	{
-		std::cout << "Right Thumb\n";
-	}
-	//Shoulder buttons
-	else if (IsPressed(ControllerButton::Left_Shoulder))
-	{
-		std::cout << "Left shoulder\n";
-	}
-	else if (IsPressed(ControllerButton::Right_Shoulder))
-	{
-		std::cout << "Right shoulder\n";
-	}
-	//start and back
-	else if (IsPressed(ControllerButton::Start))
-	{
-		std::cout << "start button\n";
-	}
-	else if (IsPressed(ControllerButton::Back))
+	if (IsPressed(ControllerButton::Back))
 	{
 		std::cout << "back button\n";
+		return false;
 	}
-	//Back buttons (R2 and L2)
-	else if (IsPressed(ControllerButton::bLeftTrigger))
-	{
-		std::cout << "Left back button\n";
-	}
-	else if (IsPressed(ControllerButton::bRightTrigger))
-	{
-		std::cout << "Right back button\n";
-	}
-	//joystick movement
-	else if (IsPressed(ControllerButton::ThumbLX))
-	{
-		std::cout << "Left X-axis\n";
-	}
-	else if (IsPressed(ControllerButton::ThumbLY))
-	{
-		std::cout << "Left Y-axis\n";
-	}
-	else if (IsPressed(ControllerButton::ThumbRX))
-	{
-		std::cout << "Right X-axis\n";
-	}
-	else if (IsPressed(ControllerButton::ThumbRY))
-	{
-		std::cout << "Right Y-axis\n";
-	}
-
 	return true;
 }
 bool dae::InputManager::IsPressed(ControllerButton button) const
@@ -199,4 +121,28 @@ bool dae::InputManager::ProcessKeyboard()
 		}
 	}
 	return true;
+}
+
+std::shared_ptr<dae::Command> dae::InputManager::ProcessAnotherController()
+{
+	if (IsPressed(ControllerButton::ButtonA))
+	{
+		m_ButtonA = std::make_shared<KillCommand>();
+		return m_ButtonA;
+	}
+	else if (IsPressed(ControllerButton::ButtonB))
+	{
+		m_ButtonB = std::make_shared<FartCommand>();
+		return m_ButtonB;
+	}
+	else if (IsPressed(ControllerButton::ButtonX))
+	{
+		return m_ButtonX;
+	}
+	else if (IsPressed(ControllerButton::ButtonY))
+	{
+		return m_ButtonY;
+	}
+
+	return NULL;
 }

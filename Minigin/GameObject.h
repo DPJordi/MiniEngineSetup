@@ -2,11 +2,13 @@
 #include "Transform.h"
 #include "SceneObject.h"
 #include <set>
-#include "BaseComponent.h"
+
 
 namespace dae
 {
 	class Texture2D;
+	class BaseComponent;
+	class Observer;
 
 	class GameObject : public SceneObject
 	{
@@ -25,8 +27,7 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 
 		void AddComponent(const std::string ComponentName, std::shared_ptr<BaseComponent> newComponent);
-		void RemoveComponent(const std::string ComponentName);
-
+		void RemoveComponent(const std::string ComponentName);		
 	private:
 		Transform m_Transform;
 		std::set<std::pair<const std::string, std::shared_ptr<BaseComponent>>> m_pComponents;

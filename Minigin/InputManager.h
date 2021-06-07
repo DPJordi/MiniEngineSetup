@@ -1,10 +1,10 @@
 #pragma once
 #include <XInput.h>
 #include "Singleton.h"
-#include "Command.h"
 
 namespace dae
 {
+	class Command;
 	enum class ControllerButton
 	{
 		ButtonA,
@@ -34,12 +34,14 @@ namespace dae
 	public:
 		bool ProcessInput();
 		bool IsPressed(ControllerButton button) const;
+		std::shared_ptr<Command> ProcessAnotherController();
+
 	private:
 		XINPUT_STATE m_CurrentState{};
-		std::unique_ptr<Command> m_ButtonA;
-		std::unique_ptr<Command> m_ButtonB;
-		std::unique_ptr<Command> m_ButtonY;
-		std::unique_ptr<Command> m_ButtonX;
+		std::shared_ptr<Command> m_ButtonA;
+		std::shared_ptr<Command> m_ButtonB;
+		std::shared_ptr<Command> m_ButtonY;
+		std::shared_ptr<Command> m_ButtonX;
 
 		bool ProcessController();
 		bool ProcessKeyboard();
